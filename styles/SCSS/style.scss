@@ -14,7 +14,7 @@ html {
 body {
 	font-family: Arial, Geneva, sans-serif;
 	color: white;
-	background-color:plum;
+	background-color:	rgba(15, 255, 235,1);
 
 }
 
@@ -48,12 +48,12 @@ body {
 	padding-bottom: 10%;
 	height: 0;
 	border-radius: 50%;
-	background-color: rebeccapurple;
+	background-color: rgba(255, 158, 249,1);
 	z-index: 1;
 	align-self: center;
 }
 
-.selected {
+.lit {
 	filter: brightness(1.75);
 }
 
