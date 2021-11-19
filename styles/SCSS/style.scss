@@ -55,7 +55,8 @@ body {
 }
 
 .lit {
-	filter: brightness(1.75);
+	filter: brightness(15);
+	border: 2px solid purple;
 }
 
 #section-0 {
@@ -75,7 +76,8 @@ body {
 	width: 10rem;
 	height: 2rem;
 	margin-top: 1rem;
-	background-color: lightblue;
+	background-color: rgb(1,102, 94);
+	color:lightblue;
 	border-radius: 10px;
 	border-style: none;
 
