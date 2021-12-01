@@ -70,15 +70,19 @@ body {
   background-color: #04be28;
 }
 
-#section-1 {
+[id="0"] {
+  background-color: #04be28;
+}
+
+[id="1"] {
   background-color: #fa3c1e;
 }
 
-#section-2 {
+[id="2"] {
   background-color: #fae01e;
 }
 
-#section-3 {
+[id="3"] {
   background-color: #1e7afa;
 }
 
