@@ -62,13 +62,16 @@ body {
 #section-0 {
 	background-color: $green;
 }
-#section-1 {
+[id= "0"] {
+	background-color: $green;
+}
+[id= "1"] {
 	background-color: $red;
 }
-#section-2 {
+[id= "2"] {
 	background-color: $yellow; 
 }
-#section-3 {
+[id= "3"] {
 	background-color: $blue;
 }
 
@@ -82,25 +85,5 @@ body {
 	border-style: none;
 
 }
-
-
-// /* 
-// .row:first-of-type {
-// 	background-color: rgb(22, 22, 22);
-// }
-
-// .row:nth-of-type(2) {
-// 	background-color: rgb(26, 8, 8);
-// }
-
-// .row:nth-of-type(3) {
-// 	background-color: rgb(13, 8, 26);
-// }
-
-// .row:nth-of-type(4) {
-// 	background-color: rgb(10, 26, 8);
-// }
-
-// /*
 
 
