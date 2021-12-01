@@ -25,7 +25,6 @@ body {
 }
 
 .gameboard {
-	// text-align: center;
 	width: 80%;
 	background-color: white;
 	// border: 2px solid gold;
@@ -55,13 +54,9 @@ body {
 }
 
 .lit {
-	filter: brightness(15);
-	border: 2px solid purple;
+	filter: brightness(6.5);
 }
 
-#section-0 {
-	background-color: $green;
-}
 [id= "0"] {
 	background-color: $green;
 }
@@ -83,7 +78,6 @@ body {
 	color:lightblue;
 	border-radius: 10px;
 	border-style: none;
-
 }
 
 

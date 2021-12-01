@@ -61,13 +61,8 @@ body {
 }
 
 .lit {
-  -webkit-filter: brightness(15);
-          filter: brightness(15);
-  border: 2px solid purple;
-}
-
-#section-0 {
-  background-color: #04be28;
+  -webkit-filter: brightness(6.5);
+          filter: brightness(6.5);
 }
 
 [id="0"] {

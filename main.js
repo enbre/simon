@@ -65,40 +65,27 @@ const game = () => {
 
 
 
-let compPatternDummy = [2, 3, 0]
+// let compPatternDummy = [2, 3, 0]
 // let compPatternDummy = [2,2,3,3,0,0]
 // let compPatternDummy = [2,3,0,2,3,0]
-// let compPatternDummy = [2,1,0,0,3,0,1]
+let compPatternDummy = [2,1,0,0,3,0,1]
 
 const lightUpSection = (idx) => {
    let selection = document.getElementById(`${idx}`)
-   // selection.classList.toggle('lit')
-   let increment = 600;
-   setTimeout(() => {
-      selection.classList.toggle("lit");
-      console.log('toggle on', selection)
-   }, increment);
-
-   // setTimeout(() => {
-   //    selection.classList.toggle("lit");
-   //    console.log('toggle off', selection)
-   // }, increment*4);
-
-}
-const lightUpSectionRemove = () => {
-   let selection = document.querySelector('.lit')
-   console.log('remove', selection)
-   selection.classList.remove("lit");
+   selection.classList.toggle('lit')
 }
 
 const compTurn = () => {
+   let interval = 200;
    for (let i in compPatternDummy) {
-      console.log('test', i, compPatternDummy[i])
-      lightUpSection(compPatternDummy[i])
-      // lightUpSection(compPatternDummy[i])
+      // console.log('test', i, compPatternDummy[i])
       setTimeout(() => {
-         lightUpSectionRemove()
-      }, 2500)
+         lightUpSection(compPatternDummy[i])
+      }, interval)
+      setTimeout(() => {
+         lightUpSection(compPatternDummy[i])
+      }, interval+500)
+      interval += 1000;
    }
 }
 // Figures out which section was clicked and compares it to the index in the compPattern. If it doesn't match, the game is over.
