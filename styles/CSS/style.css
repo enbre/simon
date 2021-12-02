@@ -61,24 +61,24 @@ body {
 }
 
 .lit {
-  -webkit-filter: brightness(6.5);
-          filter: brightness(6.5);
+  -webkit-filter: brightness(4);
+          filter: brightness(4);
 }
 
 [id="0"] {
-  background-color: #04be28;
+  background-color: rgba(4, 190, 40, 0.8);
 }
 
 [id="1"] {
-  background-color: #fa3c1e;
+  background-color: rgba(250, 60, 30, 0.8);
 }
 
 [id="2"] {
-  background-color: #fae01e;
+  background-color: rgba(250, 224, 30, 0.8);
 }
 
 [id="3"] {
-  background-color: #1e7afa;
+  background-color: rgba(30, 122, 250, 0.8);
 }
 
 #start {
