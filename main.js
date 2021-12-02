@@ -60,31 +60,30 @@ const game = () => {
    // -userHighScore = Math.max(userCurrentScore, userHighScore)
 }
 
-
-
-
-
-
 // let compPatternDummy = [2, 3, 0]
 // let compPatternDummy = [2,2,3,3,0,0]
 // let compPatternDummy = [2,3,0,2,3,0]
 let compPatternDummy = [2,1,0,0,3,0,1]
 
-const lightUpSection = (idx) => {
+const toggleLight = (idx) => {
    let selection = document.getElementById(`${idx}`)
    selection.classList.toggle('lit')
+}
+
+const lightUpSection = (idx, interval) => {
+   setTimeout(() =>{
+      toggleLight(idx)
+   }, interval)
+   
+   setTimeout(() => {
+      toggleLight(idx)
+   }, interval + 500) 
 }
 
 const compTurn = () => {
    let interval = 200;
    for (let i in compPatternDummy) {
-      // console.log('test', i, compPatternDummy[i])
-      setTimeout(() => {
-         lightUpSection(compPatternDummy[i])
-      }, interval)
-      setTimeout(() => {
-         lightUpSection(compPatternDummy[i])
-      }, interval+500)
+      lightUpSection(compPatternDummy[i],interval)
       interval += 1000;
    }
 }
@@ -93,9 +92,9 @@ const onClick = (event) => {
    if (event.target.nodeName === 'SECTION') {
       let clicked = parseInt(event.target.id)
       console.log('clicked section:', clicked)
-
-      if (clicked !== compPatternDummy[round-1]){
-         console.log("Game over!!!!")
+      lightUpSection(clicked, 200)
+         if (clicked !== compPatternDummy[round-1]){
+         // console.log("Game over!!!!")
       }
       else console.log("Next round")
    }
