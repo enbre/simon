@@ -43,27 +43,25 @@ let round = 1;
    }
    // light up each section in compPattern- might need to rename:
    const lightUpCompPattern = (interval) => {
-      // let interval = 200;
       for (let i in compPattern) {
-         // lightUpSection(compPattern[i], interval)
-         console.log(compPatternDummy[i])
-         lightUpSection(compPatternDummy[i], interval)
+         lightUpSection(compPattern[i], interval)
          interval += 1000;
       }
    }
 
    // computer turn:
    const compTurn = () => {
-      let interval = 200;
+      window.removeEventListener('click', onClick)
+      let interval = 500;
       toggleModal()
       compPatternPicker();
       lightUpCompPattern(interval);
       setTimeout(()=>{
          toggleModal()
       },(interval + 1000 * compPattern.length))
-
+      window.addEventListener('click', onClick)
+      
    }
-   // compTurn()
 
    // user's turn:
    // -as user selects each section, check it against the corrosponding index in compPattern
@@ -72,7 +70,11 @@ let round = 1;
    // -if they don't match, trigger a "game over" modal with a "play again" button
    // -increment user score
 
-
+   // const userTurn = () => {
+   //    // adds event listener to sections
+   //    window.addEventListener('click', onClick)
+   //    console.log('user turn')
+   // }
 
    // Figures out which section was clicked and compares it to the index in the compPattern. If it doesn't match, the game is over.
    const onClick = (event) => {
@@ -85,7 +87,11 @@ let round = 1;
          } else console.log("Next round")
       }
    };
-   window.addEventListener('click', onClick)
+
+   let showScore = document.getElementById(score)
+   console.log( showScore, userHighScore)
+   // showScore.innerText(`SCore: ${userHighScore}`)
+   // window.addEventListener('click', onClick)
 
    // game:
    // -reset compPattern to empty array, userCurrentScore to 0;
