@@ -26,6 +26,11 @@ let round = 1;
       let selection = document.getElementById(`${idx}`)
       selection.classList.toggle('lit')
    }
+   const toggleModal = () => {
+      let selection = document.getElementById('myModal')
+      selection.classList.toggle('modal')
+      // console.log(selection)
+   }
 
    // -light up and turn off one game section
    const lightUpSection = (idx, interval) => {
@@ -37,23 +42,26 @@ let round = 1;
       }, interval + 500)
    }
    // light up each section in compPattern- might need to rename:
-   const lightUpCompPattern = () => {
-      let interval = 200;
+   const lightUpCompPattern = (interval) => {
+      // let interval = 200;
       for (let i in compPattern) {
-         lightUpSection(compPattern[i], interval)
+         // lightUpSection(compPattern[i], interval)
+         console.log(compPatternDummy[i])
+         lightUpSection(compPatternDummy[i], interval)
          interval += 1000;
       }
    }
 
    // computer turn:
    const compTurn = () => {
-      // -trigger the "computer's turn" modal
-      console.log(compPattern)
+      let interval = 200;
+      toggleModal()
       compPatternPicker();
-      console.log('pattern',compPattern)
-      // -light up and turn off each game section in order of compPattern
-      lightUpCompPattern();
-      // -remove the "computer's turn" modal
+      lightUpCompPattern(interval);
+      setTimeout(()=>{
+         toggleModal()
+      },(interval + 1000 * compPattern.length))
+
    }
    // compTurn()
 
@@ -64,10 +72,8 @@ let round = 1;
    // -if they don't match, trigger a "game over" modal with a "play again" button
    // -increment user score
 
-   // game:
-   // -reset compPattern to empty array, userCurrentScore to 0;
-   // -keep repeating rounds until the user makes a mistake
-   // -userHighScore = Math.max(userCurrentScore, userHighScore)
+
+
    // Figures out which section was clicked and compares it to the index in the compPattern. If it doesn't match, the game is over.
    const onClick = (event) => {
       if (event.target.nodeName === 'SECTION') {
@@ -80,6 +86,11 @@ let round = 1;
       }
    };
    window.addEventListener('click', onClick)
+
+   // game:
+   // -reset compPattern to empty array, userCurrentScore to 0;
+   // -keep repeating rounds until the user makes a mistake
+   // -userHighScore = Math.max(userCurrentScore, userHighScore)
 // end of game()
 // }
 
@@ -87,37 +98,3 @@ let round = 1;
 // let compPatternDummy = [2,2,3,3,0,0]
 // let compPatternDummy = [2,3,0,2,3,0]
 // let compPatternDummy = [2, 1, 0, 0, 3, 0, 1]
-
-// const toggleLight = (idx) => {
-//    let selection = document.getElementById(`${idx}`)
-//    selection.classList.toggle('lit')
-// }
-
-// const lightUpSection = (idx, interval) => {
-//    setTimeout(() => {
-//       toggleLight(idx)
-//    }, interval)
-//    setTimeout(() => {
-//       toggleLight(idx)
-//    }, interval + 500)
-// }
-
-// const compTurn = () => {
-//    let interval = 200;
-//    for (let i in compPatternDummy) {
-//       lightUpSection(compPatternDummy[i], interval)
-//       interval += 1000;
-//    }
-// }
-// // Figures out which section was clicked and compares it to the index in the compPattern. If it doesn't match, the game is over.
-// const onClick = (event) => {
-//    if (event.target.nodeName === 'SECTION') {
-//       let clicked = parseInt(event.target.id)
-//       console.log('clicked section:', clicked)
-//       lightUpSection(clicked, 200)
-//       if (clicked !== compPatternDummy[round - 1]) {
-//          // console.log("Game over!!!!")
-//       } else console.log("Next round")
-//    }
-// };
-// window.addEventListener('click', onClick)
