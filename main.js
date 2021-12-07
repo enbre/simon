@@ -83,14 +83,17 @@ let round = 1;
          console.log('clicked section:', clicked)
          lightUpSection(clicked, 200)
          if (clicked !== compPatternDummy[round - 1]) {
-            // console.log("Game over!!!!")
+            console.log("Game over!!!!")
          } else console.log("Next round")
+         userHighScore++;
+         updateScore()
       }
    };
+   const updateScore = ()=>{
+      let showScore = document.getElementById('score');
+      showScore.innerText=`Store: ${userHighScore}`
+   }
 
-   let showScore = document.getElementById(score)
-   console.log( showScore, userHighScore)
-   // showScore.innerText(`SCore: ${userHighScore}`)
    // window.addEventListener('click', onClick)
 
    // game:
