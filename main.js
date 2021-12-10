@@ -1,15 +1,15 @@
 console.log("insanity check");
 
-let userHighScore = 0;
+let highScore = 0;
 let compPattern = [];
 let round = 1;
 
 
 // const game = () => {
    // game variables:
-   let compPatternDummy = [2, 1, 0, 0, 3, 0, 1], // yellow, red, green, green, blue, green, red
+   let userScore = 0;
+   let compPatternDummy = [2, 1, 0, 0, 3, 0, 1] // yellow, red, green, green, blue, green, red
       // userPattern = [],
-      userCurrentScore = 0;
 
    // round: 
    // - computer's turn
@@ -85,25 +85,23 @@ let round = 1;
          if (clicked !== compPatternDummy[round - 1]) {
             console.log("Game over!!!!")
          } else console.log("Next round")
-         userHighScore++;
-         updateScore()
+         userScore++;
+         updateScores()
       }
    };
-   const updateScore = ()=>{
-      let showScore = document.getElementById('score');
-      showScore.innerText=`Store: ${userHighScore}`
+   const updateScores = ()=>{
+      let showScore = document.getElementById('userScore');
+      showScore.innerText=`Score: ${userScore}`
+      highScore = Math.max(userScore, highScore)
+      let showHighScore = document.getElementById('highScore');
+      showHighScore.innerText=`High Score: ${highScore}`
    }
 
-   // window.addEventListener('click', onClick)
 
    // game:
    // -reset compPattern to empty array, userCurrentScore to 0;
    // -keep repeating rounds until the user makes a mistake
-   // -userHighScore = Math.max(userCurrentScore, userHighScore)
+   //
 // end of game()
 // }
 
-// let compPatternDummy = [2, 3, 0]
-// let compPatternDummy = [2,2,3,3,0,0]
-// let compPatternDummy = [2,3,0,2,3,0]
-// let compPatternDummy = [2, 1, 0, 0, 3, 0, 1]
