@@ -2,7 +2,6 @@
 
 html {
 	box-sizing: border-box;
-
 }
 
 *,
@@ -13,15 +12,19 @@ html {
 
 body {
 	font-family: Arial, Geneva, sans-serif;
-	color: white;
+	// color: white;
 	background-color:	rgba(15, 255, 235,1);
 	text-align: center;
-
+	text-transform: uppercase;
+	// border: 2px solid green;
 }
 
 .main {
 	display: flex;
-	justify-content: center;
+	// justify-content: center;
+	flex-direction: column;
+	// border: 2px solid purple;
+	align-items: center;
 }
 
 .gameboard {
@@ -31,7 +34,7 @@ body {
 	display: flex;
 	flex-wrap: wrap;
 	height: 0;
-	margin-top: 10%;
+	margin-top: 2%;
 	padding-bottom: 40%;
 }
 
@@ -56,17 +59,29 @@ body {
 .lit {
 	filter: brightness(4);
 }
+// #myModal{
+// 	// display: block;
+// 	// flex-direction: column;
+// 	// align-items: center;
+// 	// justify-content: center;
+// 	border: 2px solid red;
+// }
 .modal {
 	// display: none;
 	position: fixed;
-	z-index: 1;
+	z-index: 3;
 	width: 100%;
 	height: 100%;
 	overflow: auto;
 	top: 0;
 	background-color: rgba(0,0,0,.4);
+	// background-color: purple;
+	// border: 2px solid gold;
 	&-game-over {
+		@extend .modal;
+		z-index: 3;
 		background-color: rgba(0,0,0,.7);
+		// background-color: purple;
 	}	
 }
 
@@ -96,9 +111,9 @@ body {
 	border-radius: 10px;
 	border-style: none;
 }
-#highScore,#userScore{
-	color: black;
-	text-transform: uppercase;
-}
+// #highScore,#userScore{
+// 	// color: black;
+// 	text-transform: uppercase;
+// }
 
 

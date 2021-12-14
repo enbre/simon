@@ -82,8 +82,11 @@ let round = 1;
          let clicked = parseInt(event.target.id)
          console.log('clicked section:', clicked)
          lightUpSection(clicked, 200)
-         if (clicked !== compPatternDummy[round - 1]) {
-            console.log("Game over!!!!")
+         for (let i in compPattern){
+         }
+         if (clicked !== compPattern[round - 1]) {
+            // console.log("Game over!!!!")
+            gameOver()
          } else console.log("Next round")
          userScore++;
          updateScores()
@@ -96,7 +99,15 @@ let round = 1;
       let showHighScore = document.getElementById('highScore');
       showHighScore.innerText=`High Score: ${highScore}`
    }
+   const gameOver = () =>{
+      console.log("Game Over!!poop!!")
+      let selection = document.getElementById('myModal')
+      selection.classList.add('modal-game-over')
+      let gameStatus = document.getElementById('gameStatus');
+      gameStatus.innerText='Game Over!!!'
+      // selection.classList.toggle('modal-game-over')
 
+   }
 
    // game:
    // -reset compPattern to empty array, userCurrentScore to 0;
