@@ -2,7 +2,7 @@ console.log("insanity check");
 
 let highScore = 0;
 let compPattern = [];
-let round = 1;
+// let round = 1;
 
 
 // const game = () => {
@@ -45,22 +45,30 @@ let round = 1;
    const lightUpCompPattern = (interval) => {
       for (let i in compPattern) {
          lightUpSection(compPattern[i], interval)
+         console.log('compPattern',compPattern)
          interval += 1000;
       }
    }
 
    // computer turn:
    const compTurn = () => {
-      window.removeEventListener('click', onClick)
+      // disable user from clicking
+      window.removeEventListener('click', userTurn)
+      // reset timing variable
       let interval = 500;
+      // dim background
       toggleModal()
+      // add new index to compPattern
       compPatternPicker();
+      // light up all sections in compPattern
       lightUpCompPattern(interval);
+      // remove dim background after whole pattern has run
       setTimeout(()=>{
          toggleModal()
       },(interval + 1000 * compPattern.length))
-      window.addEventListener('click', onClick)
-      
+      // enable user to click
+      window.addEventListener('click', userTurn)
+      // let count = 0;
    }
 
    // user's turn:
@@ -70,28 +78,39 @@ let round = 1;
    // -if they don't match, trigger a "game over" modal with a "play again" button
    // -increment user score
 
-   // const userTurn = () => {
-   //    // adds event listener to sections
-   //    window.addEventListener('click', onClick)
-   //    console.log('user turn')
-   // }
+
 
    // Figures out which section was clicked and compares it to the index in the compPattern. If it doesn't match, the game is over.
-   const onClick = (event) => {
+   const userTurn = (event) => {
       if (event.target.nodeName === 'SECTION') {
+         // let count = 0;
          let clicked = parseInt(event.target.id)
          console.log('clicked section:', clicked)
          lightUpSection(clicked, 200)
          for (let i in compPattern){
          }
-         if (clicked !== compPattern[round - 1]) {
-            // console.log("Game over!!!!")
-            gameOver()
-         } else console.log("Next round")
+         console.log('test',count)
+         // if (clicked !== compPattern[count]) {
+         //    console.log("count:", count, 'compPattern:', compPattern)
+         //    gameOver()
+         // } else 
+         count++;
          userScore++;
          updateScores()
+         console.log('length',compPattern.length)
+         if(compPattern.length === count) {
+            console.log('next round')
+            setTimeout(()=>{
+               compTurn()
+            },1500)
+         }
       }
    };
+
+
+
+
+
    const updateScores = ()=>{
       let showScore = document.getElementById('userScore');
       showScore.innerText=`Score: ${userScore}`
@@ -100,12 +119,11 @@ let round = 1;
       showHighScore.innerText=`High Score: ${highScore}`
    }
    const gameOver = () =>{
-      console.log("Game Over!!poop!!")
+      console.log("Game Over!! Poop!!")
       let selection = document.getElementById('myModal')
       selection.classList.add('modal-game-over')
       let gameStatus = document.getElementById('gameStatus');
       gameStatus.innerText='Game Over!!!'
-      // selection.classList.toggle('modal-game-over')
 
    }
 
