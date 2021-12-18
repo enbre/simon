@@ -2,6 +2,7 @@
 
 html {
 	box-sizing: border-box;
+	text-transform: uppercase;
 }
 
 *,
@@ -15,7 +16,7 @@ body {
 	// color: white;
 	background-color:	rgba(15, 255, 235,1);
 	text-align: center;
-	text-transform: uppercase;
+
 	// border: 2px solid green;
 }
 
@@ -81,7 +82,9 @@ body {
 		@extend .modal;
 		z-index: 3;
 		background-color: rgba(0,0,0,.7);
-		// background-color: purple;
+		color: white;
+		font-weight: 900;
+		font-size: xx-large;
 	}	
 }
 
