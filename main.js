@@ -43,8 +43,6 @@ const lightUpCompPattern = (interval) => {
 
 // computer turn:
 const compTurn = () => {
-   // disable user from clicking
-   window.removeEventListener('click', userTurn)
    // reset timing variable
    let interval = 500;
    // dim background
@@ -57,9 +55,8 @@ const compTurn = () => {
    setTimeout(() => {
       toggleModal()
    }, (interval + 1000 * compPattern.length))
-   // enable user to click
-   window.addEventListener('click', userTurn)
    console.log('end of comp turn')
+   userTurn()
 }
 
 // user's turn:
@@ -68,11 +65,12 @@ const compTurn = () => {
 // -increment user score
 
 // Figures out which section was clicked and compares it to the index in the compPattern. If it doesn't match, the game is over.
-const userTurn = (event) => {
-   let count = 0;
-   
-   if (event.target.nodeName === 'SECTION') {
+
+const userClick = (event) => {
+   // only 'SECTION's are clickable
+   // if (event.target.nodeName === 'SECTION') {
       // figure out which section the user has selected.
+      console.log('click')
       let clicked = parseInt(event.target.id)
       console.log('clicked section:', clicked)
       if (clicked !== compPattern[count]) {
@@ -81,31 +79,42 @@ const userTurn = (event) => {
          return
       }
       lightUpSection(clicked, 200)
+   // }
+}
 
+
+
+
+
+const userTurn = () => {
+   let count = 0;
+   // enable user to click
+   window.addEventListener('click', userClick)
       for (let i = 0;i<compPattern.length;i++) {
-      // while (count < compPattern.length) {
          console.log('status:',  count, compPattern.length)
          // count++;
          // increment userScore and update current and high scores on screen
-         userScore++;
-         updateScores()
+         // userScore++;
+         // updateScores()
+
          // once user has matched the entire computer pattern, their turn is over
-         if (compPattern.length === count+1) {
-            console.log('next round')
-            setTimeout(() => {
-               compTurn()
-            }, 1500)
-            // }
-            console.log('end of user turn')
-         }
+         // if (compPattern.length === count+1) {
+         //    console.log('next round')
+         //    setTimeout(() => {
+         //       compTurn()
+         //    }, 1500)
+         //    // }
+         //    console.log('end of user turn')
+         // }
          // i++
+      
       }
       count++;
-   }
+   // disable user from clicking
+   window.removeEventListener('click', userClick)
 };
-// const userClick = (event) => {
 
-// }
+
 
 
 
@@ -117,6 +126,7 @@ const updateScores = () => {
    let showHighScore = document.getElementById('highScore');
    showHighScore.innerText = `High Score: ${highScore}`
 }
+
 const gameOver = () => {
    userScore = 0;
    console.log("Game Over!! Poop!!")
@@ -124,7 +134,6 @@ const gameOver = () => {
    selection.classList.add('modal-game-over')
    let gameStatus = document.getElementById('gameStatus');
    gameStatus.innerText = 'Game Over!!!'
-
 }
 
 // game:
