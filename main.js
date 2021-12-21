@@ -66,20 +66,25 @@ const compTurn = () => {
 
 // Figures out which section was clicked and compares it to the index in the compPattern. If it doesn't match, the game is over.
 
-const userClick = (event) => {
+const userClick = (event, count) => {
    // only 'SECTION's are clickable
-   // if (event.target.nodeName === 'SECTION') {
+   // count = count
+   console.log(count)
+   if (event.target.nodeName === 'SECTION') {
       // figure out which section the user has selected.
       console.log('click')
       let clicked = parseInt(event.target.id)
-      console.log('clicked section:', clicked)
+      console.log('clicked section:', clicked, "compPattern[count]:", compPattern[count], count)
+
       if (clicked !== compPattern[count]) {
          console.log("count:", count, 'compPattern:', compPattern)
          gameOver()
          return
       }
       lightUpSection(clicked, 200)
-   // }
+   }
+   count++;
+
 }
 
 
@@ -89,9 +94,10 @@ const userClick = (event) => {
 const userTurn = () => {
    let count = 0;
    // enable user to click
-   window.addEventListener('click', userClick)
+   window.addEventListener('click', userClick, count = 0)
+
       for (let i = 0;i<compPattern.length;i++) {
-         console.log('status:',  count, compPattern.length)
+         console.log('count:', count, "compPattern Length:",compPattern.length)
          // count++;
          // increment userScore and update current and high scores on screen
          // userScore++;
@@ -109,9 +115,9 @@ const userTurn = () => {
          // i++
       
       }
-      count++;
+      // count++;
    // disable user from clicking
-   window.removeEventListener('click', userClick)
+   // window.removeEventListener('click', userClick)
 };
 
 
