@@ -57,8 +57,8 @@ body {
 }
 
 .lit {
-  -webkit-filter: brightness(4);
-          filter: brightness(4);
+  -webkit-filter: brightness(7);
+          filter: brightness(7);
 }
 
 .modal, .modal-game-over {
