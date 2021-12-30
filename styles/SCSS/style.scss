@@ -2,28 +2,18 @@
 
 html {
 	box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-	box-sizing: inherit;
+	text-transform: uppercase;
 }
 
 body {
 	font-family: Arial, Geneva, sans-serif;
-	// color: white;
 	background-color:	rgba(15, 255, 235,1);
 	text-align: center;
-	text-transform: uppercase;
-	// border: 2px solid green;
 }
 
 .main {
 	display: flex;
-	// justify-content: center;
 	flex-direction: column;
-	// border: 2px solid purple;
 	align-items: center;
 }
 
@@ -39,8 +29,8 @@ body {
 }
 
 .game-section {
-	flex: 50%;
-	height: 0;
+	flex: 49%;
+	// height: 0;
 	border: 2px solid blue;
 	padding-bottom: 24.75%;
 }
@@ -81,7 +71,9 @@ body {
 		@extend .modal;
 		z-index: 3;
 		background-color: rgba(0,0,0,.7);
-		// background-color: purple;
+		color: white;
+		font-weight: 900;
+		font-size: xx-large;
 	}	
 }
 
