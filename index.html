@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,26 +8,29 @@
     <title>Simon</title>
     <link rel="stylesheet" href="./styles/CSS/style.css">
 </head>
+
 <body>
 
-<main class="main">
-    <!-- <h3 id="gameStatus"> Hey!</h3> -->
-    <h3 id="gameStatus"> Welcome to Simon!</h3>
-    <div id="myModal">
-       
-    </div>
-    <div class="gameboard">
-        <section class="game-section" id="0"></section>
-        <section class="game-section" id="1"></section>
-        <section class="game-section" id="2"></section>
-        <section class="game-section" id="3"></section>
-        <!-- <div class="console"></div> -->
-    </div>
-</main>
-<h3 id="userScore"> Score: 0</h3> 
-<h3 id="highScore"> High Score: 0</h3> 
-<button onclick="compTurn()" id="start">Start game</button>
-<!-- <button onclick="userTurn()" id="start">User's turn</button> -->
+    <main class="main">
+        <!-- <h3 id="gameStatus"> Hey!</h3> -->
+        <h3 id="gameStatus"> Welcome to Simon!</h3>
+        <div id="myModal" class='modal'>
+            <div class="modal-content">
+                <span class='close'>&times;</span>
+            </div>
+        </div>
+        <div class="gameboard">
+            <section class="game-section" id="0"></section>
+            <section class="game-section" id="1"></section>
+            <section class="game-section" id="2"></section>
+            <section class="game-section" id="3"></section>
+            <!-- <div class="console"></div> -->
+        </div>
+    </main>
+    <h3 id="userScore"> Score: 0</h3>
+    <h3 id="highScore"> High Score: 0</h3>
+    <button onclick="compTurn()" id="start">Start game</button>
+    <!-- <button onclick="userTurn()" id="start">User's turn</button> -->
 </body>
 <script type="text/javascript" src="./main.js" defer></script>
 
