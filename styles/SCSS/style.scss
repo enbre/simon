@@ -5,26 +5,15 @@ html {
 	text-transform: uppercase;
 }
 
-*,
-*:before,
-*:after {
-	box-sizing: inherit;
-}
-
 body {
 	font-family: Arial, Geneva, sans-serif;
-	// color: white;
 	background-color:	rgba(15, 255, 235,1);
 	text-align: center;
-
-	// border: 2px solid green;
 }
 
 .main {
 	display: flex;
-	// justify-content: center;
 	flex-direction: column;
-	// border: 2px solid purple;
 	align-items: center;
 }
 
@@ -40,8 +29,8 @@ body {
 }
 
 .game-section {
-	flex: 50%;
-	height: 0;
+	flex: 49%;
+	// height: 0;
 	border: 2px solid blue;
 	padding-bottom: 24.75%;
 }

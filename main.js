@@ -74,7 +74,7 @@ const userClick = (event) => {
    // only 'SECTION's are clickable
    if (event.target.nodeName === 'SECTION') {
       // figure out which section the user has selected.
-      console.log(compPattern,"compPattern[count]:", compPattern[count], 'count:',count)
+      console.log(compPattern, "compPattern[count]:", compPattern[count], 'count:', count)
       // count++;
       let clicked = parseInt(event.target.id)
       // console.log('clicked section:', clicked); 
@@ -85,18 +85,22 @@ const userClick = (event) => {
          gameOver()
          return
       }
+      count++;
+      console.log('compare:', compPattern.length, count)
       if (compPattern.length === count) {
          console.log('next round')
+         userScore++;
+         updateScores()
          setTimeout(() => {
             compTurn()
-         }, 1500)
+         }, 1000)
          // }
          console.log('end of user turn')
+         return;
       }
       lightUpSection(clicked, 200)
-      count++;
-      userScore++;
-      updateScores()
+
+
    }
 
 }
@@ -105,22 +109,22 @@ const userTurn = () => {
    // reset counter to zero
    count = 0;
    // enable user to click
-   window.addEventListener('click', userClick )
-      // for (let i = 0;i<compPattern.length;i++) {
-         console.log('count:', count, "compPattern Length:",compPattern.length)
-         // increment userScore and update current and high scores on screen
-         userScore++;
-         updateScores()
-         // once user has matched the entire computer pattern, their turn is over
-         // if (compPattern.length === count) {
-         //    console.log('next round')
-         //    setTimeout(() => {
-         //       compTurn()
-         //    }, 1500)
-         //    // }
-         //    console.log('end of user turn')
-         // }
-      // }
+   window.addEventListener('click', userClick)
+   // for (let i = 0;i<compPattern.length;i++) {
+   console.log('count:', count, "compPattern Length:", compPattern.length)
+   // increment userScore and update current and high scores on screen
+   // userScore++;
+   // updateScores()
+   // once user has matched the entire computer pattern, their turn is over
+   // if (compPattern.length === count) {
+   //    console.log('next round')
+   //    setTimeout(() => {
+   //       compTurn()
+   //    }, 1500)
+   //    // }
+   //    console.log('end of user turn')
+   // }
+   // }
 };
 
 
