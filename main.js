@@ -85,8 +85,18 @@ const userClick = (event) => {
          gameOver()
          return
       }
+      if (compPattern.length === count) {
+         console.log('next round')
+         setTimeout(() => {
+            compTurn()
+         }, 1500)
+         // }
+         console.log('end of user turn')
+      }
       lightUpSection(clicked, 200)
-      // count++;
+      count++;
+      userScore++;
+      updateScores()
    }
 
 }
@@ -102,14 +112,14 @@ const userTurn = () => {
          userScore++;
          updateScores()
          // once user has matched the entire computer pattern, their turn is over
-         if (compPattern.length === count) {
-            console.log('next round')
-            setTimeout(() => {
-               compTurn()
-            }, 1500)
-            // }
-            console.log('end of user turn')
-         }
+         // if (compPattern.length === count) {
+         //    console.log('next round')
+         //    setTimeout(() => {
+         //       compTurn()
+         //    }, 1500)
+         //    // }
+         //    console.log('end of user turn')
+         // }
       // }
 };
 
@@ -127,12 +137,19 @@ const updateScores = () => {
 }
 
 const gameOver = () => {
-   userScore = 0;
    console.log("Game Over!! Poop!!")
    let selection = document.getElementById('myModal')
    selection.classList.add('modal-game-over')
    let gameStatus = document.getElementById('gameStatus');
    gameStatus.innerText = 'Game Over!!!'
+}
+
+const newGame = () => {
+   let selection = document.getElementById('myModal')
+   selection.classList.remove('modal-game-over')
+   userScore = 0;
+   compPattern = [];
+   compTurn()
 }
 
 // game:
