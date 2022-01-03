@@ -21,8 +21,8 @@ const toggleLight = (idx) => {
    selection.classList.toggle('lit')
 }
 const toggleModal = () => {
-   let selection = document.getElementById('myModal')
-   selection.classList.toggle('modal')
+   let selection = document.getElementById('compTurnModal')
+   selection.style.display = 'none' ? 'flex' : 'none'
 }
 
 // -light up and turn off one game section
@@ -49,26 +49,22 @@ const compTurn = () => {
    window.removeEventListener('click', userClick)
    // reset timing variable
    let interval = 500;
+   // remove start button
+   let start = document.getElementById('start')
+   start.style.display='none'
    // dim background
-   // toggleModal()
+   toggleModal()
    // add new index to compPattern
    compPatternPicker();
    // light up all sections in compPattern
    lightUpCompPattern(interval);
    // remove dim background after whole pattern has run
-   // setTimeout(() => {
-   //    toggleModal()
-   // }, (interval + 1000 * compPattern.length))
+   setTimeout(() => {
+      toggleModal()
+   }, (interval + 1000 * compPattern.length))
    console.log('end of comp turn')
    userTurn()
 }
-
-// user's turn:
-// -as user selects each section, check it against the corrosponding index in compPattern
-// -if they don't match, trigger a "game over" modal with a "play again" button
-// -increment user score
-
-// Figures out which section was clicked and compares it to the index in the compPattern. If it doesn't match, the game is over.
 
 const userClick = (event) => {
    if (event.target.nodeName === 'SECTION') {
@@ -114,15 +110,15 @@ const updateScores = () => {
 
 const gameOver = () => {
    console.log("Game Over!! Poop!!")
-   let selection = document.getElementById('myModal')
-   selection.classList.add('modal-game-over')
-   let gameStatus = document.getElementById('gameStatus');
-   gameStatus.innerText = 'Game Over!!!'
+   let selection = document.getElementById('gameOverModal')
+   selection.style.display = 'flex'
+   // let gameStatus = document.getElementById('gameStatus');
+   // gameStatus.innerText = 'Game Over!!!'
 }
 
 const newGame = () => {
-   let selection = document.getElementById('myModal')
-   selection.classList.remove('modal-game-over')
+   let selection = document.getElementById('gameOverModal')
+   selection.style.display = 'none'
    userScore = 0;
    compPattern = [];
    compTurn()
