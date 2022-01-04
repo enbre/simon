@@ -79,6 +79,10 @@ body {
   font-size: xx-large;
 }
 
+.modal-content {
+  margin-top: 10rem;
+}
+
 #compTurnModal {
   background-color: rgba(0, 0, 0, 0.4);
   display: none;
@@ -86,6 +90,7 @@ body {
 
 #gameOverModal {
   display: none;
+  z-index: 3;
   background-color: rgba(0, 0, 0, 0.7);
 }
 
@@ -118,4 +123,16 @@ button {
   border-radius: 10px;
   border-style: none;
   text-transform: uppercase;
+  -webkit-transition: -webkit-transform 0.25s;
+  transition: -webkit-transform 0.25s;
+  transition: transform 0.25s;
+  transition: transform 0.25s, -webkit-transform 0.25s;
+}
+
+button:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-filter: drop-shadow(2px 2px 10px #ffff02) brightness(150%);
+          filter: drop-shadow(2px 2px 10px #ffff02) brightness(150%);
 }

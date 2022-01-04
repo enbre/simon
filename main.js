@@ -7,6 +7,7 @@ let highScore = 0;
 let compPattern = [];
 let userScore = 0;
 let count = 0;
+let base = 1000;
 
 let compPatternDummy = [2, 1, 0, 0, 3, 0, 1] // yellow, red, green, green, blue, green, red
 
@@ -20,10 +21,12 @@ const toggleLight = (idx) => {
    let selection = document.getElementById(`${idx}`)
    selection.classList.toggle('lit')
 }
-const toggleModal = () => {
-   let selection = document.getElementById('compTurnModal')
-   selection.style.display = 'none' ? 'flex' : 'none'
-}
+// not currently using this:
+// const toggleModal = () => {
+//    let selection = document.getElementById('compTurnModal')
+//    console.log('display:',selection.style.display)
+//    selection.style.display = 'none' | '' ? 'flex' : 'none'
+// }
 
 // -light up and turn off one game section
 const lightUpSection = (idx, interval) => {
@@ -32,13 +35,13 @@ const lightUpSection = (idx, interval) => {
    }, interval)
    setTimeout(() => {
       toggleLight(idx)
-   }, interval + 300)
+   }, interval + base/2)
 }
 // light up each section in compPattern- might need to rename:
 const lightUpCompPattern = (interval) => {
    for (let i in compPattern) {
       lightUpSection(compPattern[i], interval)
-      interval += 1000;
+      interval += base;
    }
    console.log('compPattern', compPattern)
 }
@@ -53,15 +56,18 @@ const compTurn = () => {
    let start = document.getElementById('start')
    start.style.display='none'
    // dim background
-   toggleModal()
+   // toggleModal()
+   let selection = document.getElementById('compTurnModal')
+   selection.style.display = 'flex'
    // add new index to compPattern
    compPatternPicker();
    // light up all sections in compPattern
    lightUpCompPattern(interval);
    // remove dim background after whole pattern has run
    setTimeout(() => {
-      toggleModal()
-   }, (interval + 1000 * compPattern.length))
+      // toggleModal()
+      selection.style.display = 'none'
+   }, (interval + base * compPattern.length))
    console.log('end of comp turn')
    userTurn()
 }
@@ -71,6 +77,7 @@ const userClick = (event) => {
       // figure out which section the user has selected.
       console.log(compPattern, "compPattern[count]:", compPattern[count], 'count:', count)
       let clicked = parseInt(event.target.id)
+      console.log('clicked section:',clicked)
       if (clicked !== compPattern[count]) {
          console.log("count:", count, 'compPattern:', compPattern)
          gameOver()
@@ -84,11 +91,11 @@ const userClick = (event) => {
          updateScores()
          setTimeout(() => {
             compTurn()
-         }, 1000)
+         }, base)
          console.log('end of user turn')
          return;
       }
-      lightUpSection(clicked, 500)
+      lightUpSection(clicked, base)
    }
 }
 
