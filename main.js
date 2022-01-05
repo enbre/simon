@@ -72,6 +72,11 @@ const compTurn = () => {
    userTurn()
 }
 
+const changeGameStatus = (input) => {
+   const status = document.getElementById('gameStatus')
+   status.innerText = input
+}
+
 const userClick = (event) => {
    if (event.target.nodeName === 'SECTION') {
       // figure out which section the user has selected.
