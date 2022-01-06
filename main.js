@@ -58,8 +58,8 @@ const compTurn = () => {
    start.style.display='none'
    // dim background
    // toggleModal()
-   let selection = document.getElementById('compTurnModal')
-   selection.style.display = 'flex'
+   // let selection = document.getElementById('compTurnModal')
+   // selection.style.display = 'flex'
    changeGameStatus("Computer's turn")
    // add new index to compPattern
    compPatternPicker();
@@ -68,7 +68,7 @@ const compTurn = () => {
    // remove dim background after whole pattern has run
    setTimeout(() => {
       // toggleModal()
-      selection.style.display = 'none'
+      // selection.style.display = 'none'
       changeGameStatus("Your turn")
    }, (interval + base * compPattern.length))
    console.log('end of comp turn')

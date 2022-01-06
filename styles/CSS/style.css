@@ -24,24 +24,23 @@ body {
 }
 
 .gameboard {
-  width: 80%;
+  width: 50%;
   background-color: white;
+  border: 2px solid gold;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   height: 0;
-  margin-top: 2%;
-  padding-bottom: 40%;
+  padding-bottom: 47%;
 }
 
 .game-section {
-  -webkit-box-flex: 49%;
-      -ms-flex: 49%;
-          flex: 49%;
-  border: 2px solid blue;
-  padding-bottom: 24.75%;
+  -webkit-box-flex: 50%;
+      -ms-flex: 50%;
+          flex: 50%;
+  padding-bottom: 47%;
 }
 
 .console {
@@ -92,6 +91,10 @@ body {
   display: none;
   z-index: 3;
   background-color: rgba(0, 0, 0, 0.7);
+}
+
+#gameStatus {
+  font-size: xx-large;
 }
 
 [id="0"] {
