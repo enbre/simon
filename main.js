@@ -134,8 +134,11 @@ const gameOver = () => {
 const newGame = () => {
    let selection = document.getElementById('gameOverModal')
    selection.style.display = 'none'
+   changeGameStatus("Welcome to Simon!")
+
    userScore = 0;
    compPattern = [];
+   updateScores()
    compTurn()
 }
 
