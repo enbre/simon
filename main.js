@@ -59,6 +59,7 @@ const compTurn = () => {
    // toggleModal()
    let selection = document.getElementById('compTurnModal')
    selection.style.display = 'flex'
+   changeGameStatus("Computer's turn")
    // add new index to compPattern
    compPatternPicker();
    // light up all sections in compPattern
@@ -67,6 +68,7 @@ const compTurn = () => {
    setTimeout(() => {
       // toggleModal()
       selection.style.display = 'none'
+      changeGameStatus("Your turn")
    }, (interval + base * compPattern.length))
    console.log('end of comp turn')
    userTurn()
@@ -110,6 +112,7 @@ const userTurn = () => {
    // allows user to click
    window.addEventListener('click', userClick)
    // console.log('count:', count, "compPattern Length:", compPattern.length)
+   
 };
 
 const updateScores = () => {
