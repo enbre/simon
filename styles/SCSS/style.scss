@@ -24,12 +24,18 @@ body {
 	display: flex;
 	flex-wrap: wrap;
 	height: 0;
+	// filter:brightness(.41);
 	// margin-top: 2%;
 	padding-bottom: 47%;
 	border-radius: 50%;
 	border:.5em solid purple;
 }
-
+.lightBox {
+	// @extend .gameboard;
+	background: red;
+	box-shadow: 0 0 5em 1em;
+	z-index: 3;
+}
 .game-section {
 	flex: 49%;
 	// margin:-.01px;
@@ -39,6 +45,9 @@ body {
 	// border: 2px solid blue;
 	padding-bottom: 47%;
 	border-top-left-radius: 100%;
+}
+.game-section:hover {
+	cursor: pointer;
 }
 
 .console {
@@ -53,7 +62,8 @@ body {
 }
 
 .lit {
-	filter: brightness(7);
+	// filter: brightness(7);
+	filter: opacity(.25);
 }
 // #myModal{
 // 	// display: block;
@@ -68,7 +78,7 @@ body {
 	z-index: 1;
 	width: 100%;
 	height: 100%;
-	overflow: auto;
+	// overflow: auto;
 	top: 0;
 	justify-content: center;
 	color: white;
@@ -78,10 +88,10 @@ body {
 .modal-content {
 	margin-top: 10rem;
 }
-#compTurnModal {
-	background-color: rgba(0,0,0,.4);
-	display: none;
-}
+// #compTurnModal {
+// 	background-color: rgba(0,0,0,.4);
+// 	display: none;
+// }
 #gameOverModal {
 	display: none;
 	z-index: 3;
