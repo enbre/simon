@@ -26,7 +26,6 @@ body {
 .gameboard {
   width: 50%;
   background-color: white;
-  border: 2px solid gold;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -34,13 +33,16 @@ body {
       flex-wrap: wrap;
   height: 0;
   padding-bottom: 47%;
+  border-radius: 50%;
+  border: .5em solid purple;
 }
 
 .game-section {
-  -webkit-box-flex: 50%;
-      -ms-flex: 50%;
-          flex: 50%;
+  -webkit-box-flex: 49%;
+      -ms-flex: 49%;
+          flex: 49%;
   padding-bottom: 47%;
+  border-top-left-radius: 100%;
 }
 
 .console {
@@ -103,16 +105,22 @@ body {
 }
 
 [id="1"] {
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
   background-color: rgba(250, 60, 30, 0.8);
   z-index: 2;
 }
 
 [id="2"] {
+  -webkit-transform: scaleY(-1);
+          transform: scaleY(-1);
   background-color: rgba(250, 224, 30, 0.8);
   z-index: 2;
 }
 
 [id="3"] {
+  -webkit-transform: scaleY(-1) scaleX(-1);
+          transform: scaleY(-1) scaleX(-1);
   background-color: rgba(30, 122, 250, 0.8);
   z-index: 2;
 }
