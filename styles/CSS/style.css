@@ -24,7 +24,7 @@ body {
 }
 
 .gameboard {
-  width: 50%;
+  width: 40%;
   background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -32,7 +32,7 @@ body {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   height: 0;
-  padding-bottom: 47%;
+  padding-bottom: 34%;
   border-radius: 50%;
   border: .5em solid purple;
 }
@@ -48,7 +48,7 @@ body {
   -webkit-box-flex: 49%;
       -ms-flex: 49%;
           flex: 49%;
-  padding-bottom: 47%;
+  padding-bottom: 42.5%;
   border-top-left-radius: 100%;
 }
 
