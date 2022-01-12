@@ -5,6 +5,7 @@ let highScore = 0;
 // const game = () => {
 // game variables:
 let compPattern = [];
+const startPattern = [0,1,3,2];
 let userScore = 0;
 let count = 0;
 let base = 1000;
