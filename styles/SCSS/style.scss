@@ -9,6 +9,7 @@ body {
 	font-family: Arial, Geneva, sans-serif;
 	background-color:	rgba(15, 255, 235,1);
 	text-align: center;
+	color: $navy;
 }
 
 .main {
@@ -18,7 +19,7 @@ body {
 }
 
 .gameboard {
-	width: 50%;
+	width: 40%;
 	background-color: white;
 	// border: 5px solid gold;
 	display: flex;
@@ -26,9 +27,9 @@ body {
 	height: 0;
 	// filter:brightness(.41);
 	// margin-top: 2%;
-	padding-bottom: 47%;
+	padding-bottom: 34%;
 	border-radius: 50%;
-	border:.5em solid purple;
+	border:.5em solid $navy;
 }
 .lightBox {
 	// @extend .gameboard;
@@ -43,7 +44,7 @@ body {
 
 	// height: auto;
 	// border: 2px solid blue;
-	padding-bottom: 47%;
+	padding-bottom: 42.5%;
 	border-top-left-radius: 100%;
 }
 .game-section:hover {
@@ -125,7 +126,7 @@ button {
 	width: 10rem;
 	height: 2rem;
 	margin-top: 1rem;
-	background-color: rgb(1,102, 94);
+	background-color: $navy;
 	color:lightblue;
 	border-radius: 10px;
 	border-style: none;
