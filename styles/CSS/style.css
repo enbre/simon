@@ -8,6 +8,7 @@ body {
   font-family: Arial, Geneva, sans-serif;
   background-color: #0fffeb;
   text-align: center;
+  color: #222f78;
 }
 
 .main {
@@ -34,7 +35,7 @@ body {
   height: 0;
   padding-bottom: 34%;
   border-radius: 50%;
-  border: .5em solid purple;
+  border: 0.5em solid #222f78;
 }
 
 .lightBox {
@@ -134,7 +135,7 @@ button {
   width: 10rem;
   height: 2rem;
   margin-top: 1rem;
-  background-color: #01665e;
+  background-color: #222f78;
   color: lightblue;
   border-radius: 10px;
   border-style: none;
