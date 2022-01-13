@@ -25,8 +25,6 @@ body {
 	display: flex;
 	flex-wrap: wrap;
 	height: 0;
-	// filter:brightness(.41);
-	// margin-top: 2%;
 	padding-bottom: 34%;
 	border-radius: 50%;
 	border:.5em solid $navy;
@@ -63,16 +61,10 @@ body {
 }
 
 .lit {
-	// filter: brightness(7);
-	filter: opacity(.25);
+	filter: brightness(7);
+	// filter: opacity(.25);
+	filter: saturate(5);
 }
-// #myModal{
-// 	// display: block;
-// 	// flex-direction: column;
-// 	// align-items: center;
-// 	// justify-content: center;
-// 	border: 2px solid red;
-// }
 .modal {
 	display: flex;
 	position: fixed;
@@ -89,10 +81,41 @@ body {
 .modal-content {
 	margin-top: 10rem;
 }
-// #compTurnModal {
-// 	background-color: rgba(0,0,0,.4);
-// 	display: none;
-// }
+
+// 
+.tooltip {
+	position: relative;
+	// border-bottom: 1px dashed $navy;
+}
+.tooltip:before {
+	content: attr(data-text);
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	// left: 50%;
+	margin: 0 auto ;
+	width: 10em;
+	padding: 2em;
+	border-radius: 1em;
+	background: $navy;
+	color:$lightblue;
+	text-align: center;
+	display:none;
+	font-weight: 200;
+	text-transform:capitalize ;
+	font-size: 1em;
+	filter:opacity(.8);
+
+}
+.tooltip.left:before {
+	left:initial;
+	margin:initial;
+	right: 100%;
+	margin-right: 2em;
+}
+.tooltip:hover:before {
+	display: block;
+}
 #gameOverModal {
 	display: none;
 	z-index: 3;
@@ -101,6 +124,7 @@ body {
 #gameStatus {
 	font-size: xx-large;
 }
+// Game sections: 
 [id= "0"] {
 	background-color: $green;
 	z-index: 2;
@@ -117,7 +141,6 @@ body {
 }
 [id= "3"] {
 	transform: scaleY(-1) scaleX(-1);
-	// transform: scaleX(1);
 	background-color: $blue;
 	z-index: 2;
 }
@@ -127,7 +150,7 @@ button {
 	height: 2rem;
 	margin-top: 1rem;
 	background-color: $navy;
-	color:lightblue;
+	color:$lightblue;
 	border-radius: 10px;
 	border-style: none;
 	text-transform: uppercase;

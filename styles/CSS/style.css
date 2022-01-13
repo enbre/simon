@@ -70,8 +70,10 @@ body {
 }
 
 .lit {
-  -webkit-filter: opacity(0.25);
-          filter: opacity(0.25);
+  -webkit-filter: brightness(7);
+          filter: brightness(7);
+  -webkit-filter: saturate(5);
+          filter: saturate(5);
 }
 
 .modal {
@@ -93,6 +95,42 @@ body {
 
 .modal-content {
   margin-top: 10rem;
+}
+
+.tooltip {
+  position: relative;
+}
+
+.tooltip:before {
+  content: attr(data-text);
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  margin: 0 auto;
+  width: 10em;
+  padding: 2em;
+  border-radius: 1em;
+  background: #222f78;
+  color: #a6d6ff;
+  text-align: center;
+  display: none;
+  font-weight: 200;
+  text-transform: capitalize;
+  font-size: 1em;
+  -webkit-filter: opacity(0.8);
+          filter: opacity(0.8);
+}
+
+.tooltip.left:before {
+  left: initial;
+  margin: initial;
+  right: 100%;
+  margin-right: 2em;
+}
+
+.tooltip:hover:before {
+  display: block;
 }
 
 #gameOverModal {
@@ -136,7 +174,7 @@ button {
   height: 2rem;
   margin-top: 1rem;
   background-color: #222f78;
-  color: lightblue;
+  color: #a6d6ff;
   border-radius: 10px;
   border-style: none;
   text-transform: uppercase;
