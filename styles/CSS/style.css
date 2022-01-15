@@ -124,8 +124,8 @@ h3 {
           filter: opacity(0.9);
   white-space: pre-line;
   opacity: 0;
-  -webkit-transition: .53s opacity;
-  transition: .53s opacity;
+  -webkit-transition: 1s opacity;
+  transition: 1s opacity;
 }
 
 .tooltip:hover:before {
@@ -195,6 +195,7 @@ button:hover {
 
 .footer {
   font-size: .7em;
+  margin-bottom: 10%;
 }
 
 .footer a {
