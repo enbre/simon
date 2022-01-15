@@ -10,7 +10,6 @@
 </head>
 
 <body>
-
     <main class="main">
         <h1 id="gameStatus"> Welcome to Simon!</h1>
         <div id="gameOverModal" class='modal'>
@@ -20,25 +19,24 @@
                 <button onclick="newGame()">Start new game</button>
             </div>
         </div>
-        <!-- <div class="lightBox">
-            hello
-            </div> -->
         <div class="gameboard">
+            <!-- <div class="console"> -->
                 
                 <section class="game-section" id="0"></section>
                 <section class="game-section" id="1"></section>
                 <section class="game-section" id="2"></section>
                 <section class="game-section" id="3"></section>
-            <!-- <div class="console"></div> -->
+
+            <!-- </div> -->
         </div>
-    <!-- </main> -->
     <h3 id="userScore"> Score: 0</h3>
     <h3 id="highScore"> High Score: 0</h3>
     <button onclick="compTurn()" id="start">New game</button>
-    <!-- <span data-text="Testing that this works" class="tooltip">About Simon</span> -->
-<!-- </main> -->
-    <h5 data-html='true' data-text="Based on the classic handheld game of the same name, Simon is a simple one person puzzle. Each round, the computer adds one lit section to its pattern, and you try to repeat it. 
-    One mistake and the game is over!!" class="tooltip">About Simon</h5>
+    <div class="tooltip">About Simon
+        <span class="tooltip-text" > Based on the classic handheld game of the same name, Simon is a simple one-person puzzle. Each round, the computer adds one lit section to its pattern, and you try to repeat it.
+
+        One mistake and the game is over!!</span>
+    </div>
     <p class="footer">Built by <a href='https://www.github.com/enbre' target='_blank' > Noah Brezel</a> </p>
 </main>
 </body>
