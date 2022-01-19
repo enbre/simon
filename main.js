@@ -55,7 +55,7 @@ const compTurn = () => {
    interval = 500;
    // remove start button
    let start = document.getElementById('start')
-   start.style.display='none'
+   start.style.visibility='hidden'
    // dim background
    // toggleModal()
    // let selection = document.getElementById('compTurnModal')
@@ -83,6 +83,7 @@ const changeGameStatus = (input) => {
 const userClick = (event) => {
    if (event.target.nodeName === 'SECTION') {
       let clicked = parseInt(event.target.id)
+
       if (clicked !== compPattern[count]) {
          console.log("count:", count, 'compPattern:', compPattern)
          gameOver()
