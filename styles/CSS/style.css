@@ -129,6 +129,7 @@ h3 {
 
 [id="0"] {
   background-color: rgba(4, 190, 40, 0.9);
+  z-index: 2;
 }
 
 [id="1"] {

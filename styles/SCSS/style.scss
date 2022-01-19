@@ -37,6 +37,18 @@ h3 {
 	border: 1em solid $navy;
 	margin-bottom: 1em;
 	box-shadow: .1em .1em 1em .25em white;
+	// &::before {
+		// border-radius: 100%;
+		// content:'';
+		// // background-image: radial-gradient(white, black);
+		// background-image: linear-gradient(red, black 100%);
+		// top: 1px;
+		// bottom: 1px;
+		// right: 1px;
+		// left: 1px;
+		// position: absolute;
+		// // padding: -10em;
+	// }
 }
 
 .game-section {
@@ -114,6 +126,7 @@ h3 {
 // Game sections: 
 [id="0"] {
 	background-color: $green;
+	z-index: 2;
 }
 
 [id="1"] {
