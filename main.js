@@ -5,6 +5,7 @@ let highScore = 0;
 // const game = () => {
 // game variables:
 let compPattern = [];
+const startPattern = [0,1,3,2];
 let userScore = 0;
 let count = 0;
 let base = 1000;
@@ -20,17 +21,11 @@ const toggleLight = (idx) => {
    let selection = document.getElementById(`${idx}`)
    selection.classList.toggle('lit')
 }
-// not currently using this, but would like to figure out why ternary doesn't work:
-// const toggleModal = () => {
-//    let selection = document.getElementById('compTurnModal')
-//    console.log('display:',selection.style.display)
-//    selection.style.display = 'none' | '' ? 'flex' : 'none'
-// }
-
 // -light up and turn off one game section
 const lightUpSection = (idx, interval) => {
    setTimeout(() => {
       toggleLight(idx)
+      playSound(idx)
       // console.log('on',idx)
    }, interval)
    setTimeout(() => {
@@ -47,28 +42,26 @@ const lightUpCompPattern = (interval) => {
    console.log('compPattern', compPattern)
 }
 
+const playSound = (idx) => {
+   let mySound = new Audio(`./assets/sounds/beep${idx}.mp3`)
+   mySound.play();
+}
+
 // computer turn:
 const compTurn = () => {
    // disable user from clicking
    window.removeEventListener('click', userClick)
    // reset timing variable
    interval = 500;
-   // remove start button
+   // hide start button
    let start = document.getElementById('start')
    start.style.visibility='hidden'
-   // dim background
-   // toggleModal()
-   // let selection = document.getElementById('compTurnModal')
-   // selection.style.display = 'flex'
    changeGameStatus("Computer's turn")
    // add new index to compPattern
    compPatternPicker();
    // light up all sections in compPattern
    lightUpCompPattern(interval);
-   // remove dim background after whole pattern has run
    setTimeout(() => {
-      // toggleModal()
-      // selection.style.display = 'none'
       changeGameStatus("Your turn")
    }, (interval + base * compPattern.length))
    console.log('end of comp turn')
@@ -123,8 +116,9 @@ const gameOver = () => {
    console.log("Game Over!! Poop!!")
    let selection = document.getElementById('gameOverModal')
    selection.style.display = 'flex'
+   let mySound = new Audio(`./assets/sounds/game_over.mp3`)
+   mySound.play();
 }
-
 const newGame = () => {
    let selection = document.getElementById('gameOverModal')
    selection.style.display = 'none'

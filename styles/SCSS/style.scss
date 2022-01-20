@@ -13,7 +13,7 @@ body {
 	text-align: center;
 	color: $navy;
 	letter-spacing: .16em;
-
+	font-size: 20px;
 }
 
 h3 {
@@ -33,14 +33,16 @@ h3 {
 	flex-wrap: wrap;
 	height: 0;
 	padding-bottom: 34%;
-	border-radius: 50%;
-	border: 1em solid $navy;
 	margin-bottom: 1em;
-	box-shadow: .1em .1em 1em .25em white;
+	border-radius: 50%;
+	border: .25em solid transparent;
+	box-shadow: .1em .1em 1em  $navy;
+	outline: .2em solid $navy;
+	outline-offset: .12em;
 }
 
 .game-section {
-	flex: 49%;
+	flex: 50%;
 	padding-bottom: 42.5%;
 	border-top-left-radius: 100%;
 	box-shadow: inset .1em .1em 1em .25em $shadow;
@@ -59,13 +61,11 @@ h3 {
 	justify-content: center;
 	color: white;
 	font-weight: 900;
-	font-size: xx-large;
+	font-size: 1.8em;
 	& button {
-		// align-items: flex-start;
 		width: 10em;
 		padding: 1em;
 		padding-bottom: 2em;
-		// color:red;
 	}
 }
 
@@ -83,8 +83,8 @@ h3 {
 		visibility: hidden;
 		position: absolute;
 		bottom: 10%;
-		left: -230%;
-		width: 500%;
+		left: -250%;
+		width: 550%;
 		padding: 2em;
 		border-radius: 1em;
 		background: $navy;
@@ -104,16 +104,17 @@ h3 {
 #gameOverModal {
 	display: none;
 	z-index: 3;
-	background-color: rgba(0, 0, 0, .7);
+	background-color: $shadow;
 }
 
 #gameStatus {
-	font-size: xx-large;
+	font-size: 1.6em;
 }
 
 // Game sections: 
 [id="0"] {
 	background-color: $green;
+	z-index: 2;
 }
 
 [id="1"] {
@@ -137,25 +138,25 @@ h3 {
 }
 
 button {
-	width: 10rem;
-	height: 2rem;
-	margin-top: 1rem;
+	width: 10em;
+	height: 2.25em;
+	margin: 1em;
 	background-color: $navy;
 	color: $lightblue;
-	border-radius: 10px;
+	border-radius: 1em;
 	border-style: none;
 	text-transform: uppercase;	
 	font-family: 'Roboto', sans-serif;
 	font-family: 'ZCOOL QingKe HuangYou', cursive;
 	letter-spacing: .05em;
-	font-size: 1em;
+	font-size: 1.5em;
 	transition: transform 0.25s;
 	filter: opacity(.9);
 
 	&:hover {
 		cursor: pointer;
 		transform: scale(1.1);
-		filter: drop-shadow(2px 2px 10px rgba(255, 255, 2, 1)) brightness(150%);
+		filter: drop-shadow(2px 2px 10px $yellow) brightness(150%);
 	}
 }
 
