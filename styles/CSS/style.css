@@ -11,6 +11,7 @@ body {
   text-align: center;
   color: #222f78;
   letter-spacing: .16em;
+  font-size: 20px;
 }
 
 h3 {
@@ -77,7 +78,7 @@ h3 {
           justify-content: center;
   color: white;
   font-weight: 900;
-  font-size: xx-large;
+  font-size: 1.8em;
 }
 
 .modal button {
@@ -126,7 +127,7 @@ h3 {
 }
 
 #gameStatus {
-  font-size: xx-large;
+  font-size: 1.6em;
 }
 
 [id="0"] {
@@ -158,18 +159,18 @@ h3 {
 }
 
 button {
-  width: 10rem;
-  height: 2rem;
-  margin-top: 1rem;
+  width: 10em;
+  height: 2.25em;
+  margin: 1em;
   background-color: #222f78;
   color: #a6d6ff;
-  border-radius: 10px;
+  border-radius: 1em;
   border-style: none;
   text-transform: uppercase;
   font-family: 'Roboto', sans-serif;
   font-family: 'ZCOOL QingKe HuangYou', cursive;
   letter-spacing: .05em;
-  font-size: 1em;
+  font-size: 1.5em;
   -webkit-transition: -webkit-transform 0.25s;
   transition: -webkit-transform 0.25s;
   transition: transform 0.25s;

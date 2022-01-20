@@ -13,6 +13,7 @@ body {
 	text-align: center;
 	color: $navy;
 	letter-spacing: .16em;
+	font-size: 20px;
 }
 
 h3 {
@@ -60,7 +61,7 @@ h3 {
 	justify-content: center;
 	color: white;
 	font-weight: 900;
-	font-size: xx-large;
+	font-size: 1.8em;
 	& button {
 		width: 10em;
 		padding: 1em;
@@ -107,7 +108,7 @@ h3 {
 }
 
 #gameStatus {
-	font-size: xx-large;
+	font-size: 1.6em;
 }
 
 // Game sections: 
@@ -137,18 +138,18 @@ h3 {
 }
 
 button {
-	width: 10rem;
-	height: 2rem;
-	margin-top: 1rem;
+	width: 10em;
+	height: 2.25em;
+	margin: 1em;
 	background-color: $navy;
 	color: $lightblue;
-	border-radius: 10px;
+	border-radius: 1em;
 	border-style: none;
 	text-transform: uppercase;	
 	font-family: 'Roboto', sans-serif;
 	font-family: 'ZCOOL QingKe HuangYou', cursive;
 	letter-spacing: .05em;
-	font-size: 1em;
+	font-size: 1.5em;
 	transition: transform 0.25s;
 	filter: opacity(.9);
 
