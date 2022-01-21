@@ -26,12 +26,10 @@ const lightUpSection = (idx, interval) => {
    setTimeout(() => {
       toggleLight(idx)
       playSound(idx)
-      // console.log('on',idx)
-   }, interval)
-   setTimeout(() => {
-      toggleLight(idx)
-      // console.log('off', idx)
-   }, interval + base/2)
+      setTimeout(() => {
+         toggleLight(idx)
+      }, base/2)
+   }, interval )
 }
 // light up each section in compPattern
 const lightUpCompPattern = (interval) => {
@@ -39,7 +37,7 @@ const lightUpCompPattern = (interval) => {
       lightUpSection(compPattern[i], interval)
       interval += base;
    }
-   console.log('compPattern', compPattern)
+   console.log('compPattern:', compPattern, 'interval:', interval)
 }
 
 const playSound = (idx) => {
@@ -64,7 +62,7 @@ const compTurn = () => {
    setTimeout(() => {
       changeGameStatus("Your turn")
    }, (interval + base * compPattern.length))
-   console.log('end of comp turn')
+   // console.log('end of comp turn')
    userTurn()
 }
 
@@ -85,13 +83,13 @@ const userClick = (event) => {
       count++;
       lightUpSection(clicked, base/4)
       if (compPattern.length === count) {
-         console.log('next round')
+         // console.log('next round')
          userScore++;
          updateScores()
          setTimeout(() => {
             compTurn()
          }, base)
-         console.log('end of user turn')
+         // console.log('end of user turn')
          return;
       }
    }

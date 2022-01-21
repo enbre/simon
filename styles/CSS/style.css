@@ -43,11 +43,9 @@ h3 {
   padding-bottom: 34%;
   margin-bottom: 1em;
   border-radius: 50%;
-  border: .25em solid transparent;
-  -webkit-box-shadow: 0.1em 0.1em 1em #222f78;
-          box-shadow: 0.1em 0.1em 1em #222f78;
-  outline: 0.2em solid #222f78;
-  outline-offset: .12em;
+  border: 0.5em solid #222f78;
+  -webkit-box-shadow: 0 0 1em #222f78;
+          box-shadow: 0 0 1em #222f78;
 }
 
 .game-section {
@@ -213,6 +211,5 @@ button:hover {
     width: 225%;
     bottom: -100%;
     left: -90%;
-    color: red;
   }
 }

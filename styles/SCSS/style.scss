@@ -28,8 +28,6 @@ h3 {
 
 .gameboard {
 	width: 40%;
-	// min-width: 500px;
-	// min-height: 40px;
 	background-color: $navy;
 	display: flex;
 	flex-wrap: wrap;
@@ -37,15 +35,12 @@ h3 {
 	padding-bottom: 34%;
 	margin-bottom: 1em;
 	border-radius: 50%;
-	border: .25em solid transparent;
-	box-shadow: .1em .1em 1em  $navy;
-	outline: .2em solid $navy;
-	outline-offset: .12em;
+	border: .5em solid $navy;
+	box-shadow: 0 0 1em  $navy;
 }
 
 .game-section {
 	flex: 50%;
-	// min-width: 250px;
 	padding-bottom: 42.5%;
 	border-top-left-radius: 100%;
 	box-shadow: inset .1em .1em 1em .25em $shadow;
@@ -193,7 +188,6 @@ button {
 		width: 225%;
 		bottom: -100%;
 		left:-90%;
-		color: red;
 	}
 
 }
