@@ -5,11 +5,12 @@ let highScore = 0;
 // const game = () => {
 // game variables:
 let compPattern = [];
-const startPattern = [0,1,3,2];
+const startPattern = [0, 1, 3, 2];
 let userScore = 0;
 let count = 0;
 let base = 1000;
 let globalIntervalId = '';
+let globalInterval = 0;
 
 
 // each round, the computer pattern gets one digit longer using the digits 0-3 
@@ -29,11 +30,13 @@ const lightUpSection = (idx, interval) => {
       playSound(idx)
       setTimeout(() => {
          toggleLight(idx)
-      }, base/2)
-   }, interval )
+      }, base / 2)
+   }, interval)
+   // allow access to intervalId outside of function:
    globalIntervalId = intervalId
-   // console.log(globalIntervalId, intervalId)
-   setTimeout(()=> {clearInterval(intervalId)}, interval)
+   setTimeout(() => {
+      clearInterval(intervalId)
+   }, interval)
    console.log(intervalId)
 }
 // light up each section in compPattern
@@ -41,6 +44,8 @@ const lightUpCompPattern = (interval) => {
    for (let i in compPattern) {
       lightUpSection(compPattern[i], interval)
       interval += base;
+      // allow access to incremented interval outside of function:
+      globalInterval = interval
    }
    console.log('compPattern:', compPattern, 'interval:', interval)
 }
@@ -58,7 +63,7 @@ const compTurn = () => {
    interval = 500;
    // hide start button
    let start = document.getElementById('start')
-   start.style.visibility='hidden'
+   start.style.visibility = 'hidden'
    changeGameStatus("Computer's turn")
    // add new index to compPattern
    compPatternPicker();
@@ -83,19 +88,20 @@ const userClick = (event) => {
       if (clicked !== compPattern[count]) {
          console.log("count:", count, 'compPattern:', compPattern)
          gameOver()
+         clearInterval(globalIntervalId)
          return
-      }
-      count++;
-      lightUpSection(clicked, base/4)
-      if (compPattern.length === count) {
-         console.log('next round')
-         userScore++;
-         updateScores()
-         setTimeout(() => {
-            compTurn()
-         }, base)
-         // console.log('end of user turn')
-         return;
+      } else {
+         count++;
+         lightUpSection(clicked, base / 4)
+         if (compPattern.length === count) {
+            console.log('next round')
+            userScore++;
+            updateScores()
+            setTimeout(() => {
+               compTurn()
+            }, base)
+            return;
+         }
       }
    }
 }
@@ -104,7 +110,9 @@ const userTurn = () => {
    // reset counter to zero
    count = 0;
    // allows user to click
-   window.addEventListener('click', userClick)
+
+   setTimeout(()=> {
+      window.addEventListener('click', userClick)},globalInterval)
 };
 
 const updateScores = () => {
@@ -118,7 +126,7 @@ const updateScores = () => {
 const gameOver = () => {
    console.log("Game Over!! Poop!!", globalIntervalId)
 
-   clearInterval(globalIntervalId)
+   // clearInterval(globalIntervalId)
    let selection = document.getElementById('gameOverModal')
    selection.style.display = 'flex'
    let mySound = new Audio(`./assets/sounds/game_over.mp3`)
@@ -127,13 +135,12 @@ const gameOver = () => {
 const newGame = () => {
    let selection = document.getElementById('gameOverModal')
    selection.style.display = 'none'
-
    userScore = 0;
    compPattern = [];
    updateScores()
    setTimeout(() => {
       compTurn()
-   },interval)
+   }, base)
 }
 
 // game:
