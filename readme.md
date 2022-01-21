@@ -24,7 +24,7 @@
 ## Technologies & Code Snippets
 #### * HTML, CSS, SASS, JavaScript
 
-#### Probably the hardest thing about this project was getting the lights/sounds to turn on and off in order. The second section shouldn't light up until the first section had turned off. After playing around with various asyncronous approaches, I realized that a toggle coupled with a pair of setTimeouts and an increment variable would work. 
+#### Probably the hardest thing about this project was getting the lights/sounds to turn on and off in order. The second section shouldn't light up until the first section had turned off. After playing around with various asyncronous approaches, I realized that a toggle coupled with setInterval, setTimeout and an incremented variable would work. 
 #### * Sample code:
 #### 
 ```    
@@ -34,21 +34,26 @@ const toggleLight = (idx) => {
 }
 // light up and turn off one game section
 const lightUpSection = (idx, interval) => {
-   setTimeout(() => {
+   let intervalId = setInterval(() => {
       toggleLight(idx)
       playSound(idx)
-      // console.log('on',idx)
+      setTimeout(() => {
+         toggleLight(idx)
+      }, base / 2)
    }, interval)
+   // allow access to intervalId outside of function:
+   globalIntervalId = intervalId
    setTimeout(() => {
-      toggleLight(idx)
-      // console.log('off', idx)
-   }, interval + base/2)
+      clearInterval(intervalId)
+   }, interval)
 }
 // light up each section in compPattern
 const lightUpCompPattern = (interval) => {
    for (let i in compPattern) {
       lightUpSection(compPattern[i], interval)
       interval += base;
+      // allow access to incremented interval outside of function:
+      globalInterval = interval
    }
 }
 ```
