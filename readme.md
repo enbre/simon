@@ -12,7 +12,7 @@
 #### Each colored section has its own sound effect, so you can remember the pattern either by sight or by sound. Game tracks your current and high scores, though the high score is lost once you navigate away from the game (didn't think this warranted a login to store that).
 
 
-#### * Game screenshot:
+#### * Game screenshot: 
 
 #### ![gameScreenshot 1](./assets/game_screenshot.png) 
 #### ![gameScreenshot 2](./assets/game_screenshot2.png) 
