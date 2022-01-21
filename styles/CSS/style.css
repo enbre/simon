@@ -7,7 +7,7 @@ html {
 body {
   font-family: 'Roboto', sans-serif;
   font-family: 'ZCOOL QingKe HuangYou', sans-serif;
-  background-color: #d5f0cd;
+  background-image: radial-gradient(white, #d5f0cd);
   text-align: center;
   color: #222f78;
   letter-spacing: .16em;
@@ -94,6 +94,7 @@ h3 {
   display: block;
   font-size: .9em;
   margin: 1em;
+  text-decoration: underline;
 }
 
 .tooltip .tooltip-text {
