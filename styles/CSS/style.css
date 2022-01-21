@@ -210,9 +210,9 @@ button:hover {
     font-size: 1em;
   }
   .tooltip .tooltip-text {
-    width: 250%;
+    width: 225%;
     bottom: -100%;
-    left: -100%;
+    left: -90%;
     color: red;
   }
 }
