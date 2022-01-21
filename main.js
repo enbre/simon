@@ -23,7 +23,7 @@ const toggleLight = (idx) => {
    let selection = document.getElementById(`${idx}`)
    selection.classList.toggle('lit')
 }
-// -light up and turn off one game section
+// light up and turn off one game section
 const lightUpSection = (idx, interval) => {
    let intervalId = setInterval(() => {
       toggleLight(idx)
@@ -37,7 +37,6 @@ const lightUpSection = (idx, interval) => {
    setTimeout(() => {
       clearInterval(intervalId)
    }, interval)
-   console.log(intervalId)
 }
 // light up each section in compPattern
 const lightUpCompPattern = (interval) => {
@@ -47,7 +46,6 @@ const lightUpCompPattern = (interval) => {
       // allow access to incremented interval outside of function:
       globalInterval = interval
    }
-   console.log('compPattern:', compPattern, 'interval:', interval)
 }
 
 const playSound = (idx) => {
