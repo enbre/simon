@@ -49,8 +49,15 @@ const lightUpCompPattern = (interval) => {
 }
 
 const playSound = (idx) => {
-   let mySound = new Audio(`./assets/sounds/beep${idx}.mp3`)
+   let mySound = new Audio(`./assets/sounds/beep${idx}.mp3`);
+   // console.log('soundID',mySound.id)
    mySound.play();
+}
+const muteSound = () => {
+   console.log('Mute this!')
+   let start = document.getElementById('start')
+   if (start.innerText='mute') start.innerText= 'unmute'
+   console.log(start.innerText)
 }
 
 // computer turn:
@@ -61,7 +68,8 @@ const compTurn = () => {
    interval = 500;
    // hide start button
    let start = document.getElementById('start')
-   start.style.visibility = 'hidden'
+   start.innerText="mute"
+   // start.style.visibility = 'hidden'
    changeGameStatus("Computer's turn")
    // add new index to compPattern
    compPatternPicker();
