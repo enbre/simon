@@ -11,6 +11,7 @@ let count = 0;
 let base = 1000;
 let globalIntervalId = '';
 let globalInterval = 0;
+let isMuted = false;
 
 
 // each round, the computer pattern gets one digit longer using the digits 0-3 
@@ -48,18 +49,19 @@ const lightUpCompPattern = (interval) => {
    }
 }
 
-const playSound = (idx) => {
-   let mySound = new Audio(`./assets/sounds/beep${idx}.mp3`);
-   // console.log('soundID',mySound.id)
-   mySound.play();
-}
+
 const muteSound = () => {
    let sound = document.getElementById('sound')
    // console.log(sound.innerHTML)
    let snd = (sound.innerHTML == `volume_mute`) ? `volume_up`:`volume_mute`
    sound.innerHTML = snd
+   isMuted =!isMuted;
+   console.log(isMuted)
 }
-
+const playSound = (idx) => {
+   let mySound = new Audio(`./assets/sounds/beep${idx}.mp3`);
+   if (isMuted === false) mySound.play();
+}
 // computer turn:
 const compTurn = () => {
    // disable user from clicking
@@ -68,8 +70,8 @@ const compTurn = () => {
    interval = 500;
    // hide start button
    let start = document.getElementById('start')
-   start.innerText="mute"
-   // start.style.visibility = 'hidden'
+   // start.innerText="mute"
+   start.style.visibility = 'hidden'
    changeGameStatus("Computer's turn")
    // add new index to compPattern
    compPatternPicker();
@@ -136,7 +138,7 @@ const gameOver = () => {
    let selection = document.getElementById('gameOverModal')
    selection.style.display = 'flex'
    let mySound = new Audio(`./assets/sounds/game_over.mp3`)
-   mySound.play();
+   if (isMuted === false) mySound.play();
 }
 const newGame = () => {
    let selection = document.getElementById('gameOverModal')
