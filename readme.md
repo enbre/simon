@@ -65,4 +65,4 @@ const lightUpCompPattern = (interval) => {
 ---
 
 ## Future development:
-#### Stopping the queued lights/sounds from playing as soon as the game is over, adding a mute button, possibly getting the scores to be integrated into the gameboard (on a non-clickable circle in the center of the gameboard).
+#### Adding a mute button, possibly getting the scores to be integrated into the gameboard (on a non-clickable circle in the center of the gameboard).

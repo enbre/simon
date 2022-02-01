@@ -8,9 +8,11 @@
     <title>SIMON</title>
     <link rel="icon" href="./assets/favicon.png" type="image/icon" sizes="30x30">
     <link rel="stylesheet" href="./styles/CSS/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto&family=ZCOOL+QingKe+HuangYou&display=swap');
     </style>
+
 
 </head>
 
@@ -34,6 +36,13 @@
         <h3 id="userScore"> Score: 0</h3>
         <h3 id="highScore"> High Score: 0</h3>
         <button onclick="compTurn()" id="start">New game</button>
+        <span >sounds
+            <label class="switch">
+                <input type="checkbox" id="sounds">
+                <span class="slider"></span>
+            </label>
+        </span>
+        
         <div class="tooltip">About Simon
             <span class="tooltip-text"> Based on the classic handheld game of the same name, Simon is a simple, one-person puzzle. Each round, the computer adds one lit section to its pattern, and you try to repeat it.
             
