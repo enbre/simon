@@ -33,8 +33,6 @@ const lightUpSection = (idx, interval) => {
          toggleLight(idx)
       }, base / 2)
    }, interval)
-   // allow access to intervalId outside of function:
-   globalIntervalId = intervalId
    setTimeout(() => {
       clearInterval(intervalId)
    }, interval)
@@ -49,15 +47,11 @@ const lightUpCompPattern = (interval) => {
    }
 }
 
+// document.getElementById("sounds").onclick = function() {
+document.getElementById("sounds").onclick = () => {
+   isMuted = !isMuted;
+}; 
 
-const muteSound = () => {
-   let sound = document.getElementById('sound')
-   // console.log(sound.innerHTML)
-   let snd = (sound.innerHTML == `volume_mute`) ? `volume_up`:`volume_mute`
-   sound.innerHTML = snd
-   isMuted =!isMuted;
-   console.log(isMuted)
-}
 const playSound = (idx) => {
    let mySound = new Audio(`./assets/sounds/beep${idx}.mp3`);
    if (isMuted === false) mySound.play();
@@ -92,9 +86,9 @@ const changeGameStatus = (input) => {
 const userClick = (event) => {
    if (event.target.nodeName === 'SECTION') {
       let clicked = parseInt(event.target.id)
-      console.log(clicked)
+      // console.log(clicked)
       if (clicked !== compPattern[count]) {
-         console.log("count:", count, 'compPattern:', compPattern)
+         // console.log("count:", count, 'compPattern:', compPattern)
          gameOver()
          clearInterval(globalIntervalId)
          return
@@ -132,7 +126,7 @@ const updateScores = () => {
 }
 
 const gameOver = () => {
-   console.log("Game Over!! Poop!!", globalIntervalId)
+   console.log("Game Over!! Poop!!")
 
    // clearInterval(globalIntervalId)
    let selection = document.getElementById('gameOverModal')

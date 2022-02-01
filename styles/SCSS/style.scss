@@ -192,14 +192,14 @@ span {
 	bottom: 0;
 	transition: .4s;
 	border-radius: 1.5em;
-	background-color: $lightnavy;
+	background-color: $navy;
 
 	&:before {
 		position: absolute;
 		content: '';
 		height: 1em;
 		width: 1em;
-		left: .5em;
+		left: 1.5em;
 		bottom: .25em;
 		transition: .4s;
 		border-radius: 50%;
@@ -208,11 +208,11 @@ span {
 }
 
 input:checked + .slider {
-	background-color: $navy;
+	background-color: $lightnavy;
 }
 
 input:checked + .slider:before {
-	transform: translateX(1em);
+	transform: translateX(-1em);
 }
 
 @media screen and  (max-width: 700px){
