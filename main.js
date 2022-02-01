@@ -9,7 +9,6 @@ const startPattern = [0, 1, 3, 2];
 let userScore = 0;
 let count = 0;
 let base = 1000;
-let globalIntervalId = '';
 let globalInterval = 0;
 let isMuted = false;
 
@@ -33,6 +32,7 @@ const lightUpSection = (idx, interval) => {
          toggleLight(idx)
       }, base / 2)
    }, interval)
+
    setTimeout(() => {
       clearInterval(intervalId)
    }, interval)
@@ -74,7 +74,6 @@ const compTurn = () => {
    setTimeout(() => {
       changeGameStatus("Your turn")
    }, (interval + base * compPattern.length))
-   // console.log('end of comp turn')
    userTurn()
 }
 
@@ -86,13 +85,7 @@ const changeGameStatus = (input) => {
 const userClick = (event) => {
    if (event.target.nodeName === 'SECTION') {
       let clicked = parseInt(event.target.id)
-      // console.log(clicked)
-      if (clicked !== compPattern[count]) {
-         // console.log("count:", count, 'compPattern:', compPattern)
-         gameOver()
-         clearInterval(globalIntervalId)
-         return
-      } else {
+      if (clicked === compPattern[count]) {
          count++;
          lightUpSection(clicked, base / 4)
          if (compPattern.length === count) {
@@ -102,8 +95,9 @@ const userClick = (event) => {
             setTimeout(() => {
                compTurn()
             }, base)
-            return;
          }
+      } else {
+         gameOver()
       }
    }
 }
@@ -127,8 +121,6 @@ const updateScores = () => {
 
 const gameOver = () => {
    console.log("Game Over!! Poop!!")
-
-   // clearInterval(globalIntervalId)
    let selection = document.getElementById('gameOverModal')
    selection.style.display = 'flex'
    let mySound = new Audio(`./assets/sounds/game_over.mp3`)
