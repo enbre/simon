@@ -195,6 +195,64 @@ button:hover {
   color: #222f78;
 }
 
+span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.switch {
+  margin: .5em;
+  position: relative;
+  display: inline-block;
+  width: 3em;
+  height: 1.5em;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 1.5em;
+  background-color: rgba(34, 47, 120, 0.5);
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 1em;
+  width: 1em;
+  left: .5em;
+  bottom: .25em;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+  background-color: white;
+}
+
+input:checked + .slider {
+  background-color: #222f78;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(1em);
+          transform: translateX(1em);
+}
+
 @media screen and (max-width: 700px) {
   button {
     width: 7em;
