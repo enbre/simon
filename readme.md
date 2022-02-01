@@ -65,4 +65,4 @@ const lightUpCompPattern = (interval) => {
 ---
 
 ## Future development:
-#### Adding a mute button, possibly getting the scores to be integrated into the gameboard (on a non-clickable circle in the center of the gameboard).
+#### Possibly getting the scores to be integrated into the gameboard (on a non-clickable circle in the center of the gameboard).
