@@ -10,6 +10,7 @@ let userScore = 0;
 let count = 0;
 let base = 1000;
 let globalInterval = 0;
+let isMuted = false;
 
 
 // each round, the computer pattern gets one digit longer using the digits 0-3 
@@ -31,7 +32,7 @@ const lightUpSection = (idx, interval) => {
          toggleLight(idx)
       }, base / 2)
    }, interval)
-   // allow access to intervalId outside of function:
+
    setTimeout(() => {
       clearInterval(intervalId)
    }, interval)
@@ -46,11 +47,15 @@ const lightUpCompPattern = (interval) => {
    }
 }
 
-const playSound = (idx) => {
-   let mySound = new Audio(`./assets/sounds/beep${idx}.mp3`)
-   mySound.play();
-}
+// document.getElementById("sounds").onclick = function() {
+document.getElementById("sounds").onclick = () => {
+   isMuted = !isMuted;
+}; 
 
+const playSound = (idx) => {
+   let mySound = new Audio(`./assets/sounds/beep${idx}.mp3`);
+   if (isMuted === false) mySound.play();
+}
 // computer turn:
 const compTurn = () => {
    // disable user from clicking
@@ -59,6 +64,7 @@ const compTurn = () => {
    interval = 500;
    // hide start button
    let start = document.getElementById('start')
+   // start.innerText="mute"
    start.style.visibility = 'hidden'
    changeGameStatus("Computer's turn")
    // add new index to compPattern
@@ -79,7 +85,6 @@ const changeGameStatus = (input) => {
 const userClick = (event) => {
    if (event.target.nodeName === 'SECTION') {
       let clicked = parseInt(event.target.id)
-      console.log(clicked)
       if (clicked === compPattern[count]) {
          count++;
          lightUpSection(clicked, base / 4)
@@ -119,7 +124,7 @@ const gameOver = () => {
    let selection = document.getElementById('gameOverModal')
    selection.style.display = 'flex'
    let mySound = new Audio(`./assets/sounds/game_over.mp3`)
-   mySound.play();
+   if (isMuted === false) mySound.play();
 }
 const newGame = () => {
    let selection = document.getElementById('gameOverModal')
