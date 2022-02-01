@@ -54,16 +54,10 @@ const playSound = (idx) => {
    mySound.play();
 }
 const muteSound = () => {
-   // console.log('Mute this!')
    let sound = document.getElementById('sound')
-   // let sound2 = document.getElementById('sound2')
-   console.log(sound.value, sound.innerHTML)
-   // console.log(sound2.value, sound2.innerHTML, sound2.innerText)
-   // if (sound.value='true') sound.innerHTML= '&#xe04f;'
-   let snd = (sound.innerHTML === 'sound') ? 'no sound':'sound'
-   console.log(snd)
+   // console.log(sound.innerHTML)
+   let snd = (sound.innerHTML == `volume_mute`) ? `volume_up`:`volume_mute`
    sound.innerHTML = snd
-   // console.log(start.innerText)
 }
 
 // computer turn:
