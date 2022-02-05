@@ -215,6 +215,18 @@ input:checked + .slider:before {
 	transform: translateX(-1em);
 }
 
+#backButton {
+	position: fixed;
+	left:1em;
+	// left:0;
+	top: .5em;
+	font-size: .8em;
+	a {
+		color: $navy;
+	}
+
+}
+
 @media screen and  (max-width: 700px){
    
 	button {
