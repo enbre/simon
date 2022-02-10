@@ -250,4 +250,10 @@ input:checked + .slider:before {
 		left:-90%;
 	}
 
+	#backButton {
+		left: 25%;
+		& span {
+			display: inline;
+		}
+	}
 }
