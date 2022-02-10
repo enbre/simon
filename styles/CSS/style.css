@@ -282,4 +282,10 @@ input:checked + .slider:before {
     bottom: -100%;
     left: -90%;
   }
+  #backButton {
+    left: 25%;
+  }
+  #backButton span {
+    display: inline;
+  }
 }
