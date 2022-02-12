@@ -11,6 +11,8 @@ let count = 0;
 let base = 1000;
 let globalInterval = 0;
 let isMuted = false;
+let sound = "beep";
+let isBeep = true;
 
 
 // each round, the computer pattern gets one digit longer using the digits 0-3 
@@ -47,14 +49,20 @@ const lightUpCompPattern = (interval) => {
    }
 }
 
-// document.getElementById("sounds").onclick = function() {
-document.getElementById("sounds").onclick = () => {
+document.getElementById("mute").onclick = () => {
    isMuted = !isMuted;
 }; 
 
+document.getElementById("sounds").onclick = () => {
+   let soundType = document.getElementById("soundType")
+   isBeep = !isBeep
+   soundType.innerText = (isBeep ? 'BEEPS': 'FARTS')
+   sound = (isBeep ? "beep":"fart");
+}; 
+
 const playSound = (idx) => {
-   let mySound = new Audio(`./assets/sounds/beep${idx}.mp3`);
-   if (isMuted === false) mySound.play();
+   let mySound = new Audio(`./assets/sounds/${sound}${idx}.mp3`);
+   if (!isMuted ) mySound.play();
 }
 // computer turn:
 const compTurn = () => {
@@ -64,8 +72,7 @@ const compTurn = () => {
    interval = 500;
    // hide start button
    let start = document.getElementById('start')
-   // start.innerText="mute"
-   start.style.visibility = 'hidden'
+   start.style.display = 'none'
    changeGameStatus("Computer's turn")
    // add new index to compPattern
    compPatternPicker();
