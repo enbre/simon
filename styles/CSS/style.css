@@ -100,7 +100,7 @@ h3 {
 .tooltip .tooltip-text {
   visibility: hidden;
   position: absolute;
-  bottom: 10%;
+  bottom: -800%;
   left: -250%;
   width: 550%;
   padding: 2em;
